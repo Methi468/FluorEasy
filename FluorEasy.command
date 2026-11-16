@@ -1,6 +1,11 @@
 #!/bin/zsh
 # FluorEasy — One-Click macOS Launcher for Batch Microscope Image Processing
-APP_DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+if [ -f "$SCRIPT_DIR/app.py" ]; then
+  APP_DIR="$SCRIPT_DIR"
+else
+  APP_DIR="/Users/methi/.gemini/antigravity/scratch/legacy-microscope-batch"
+fi
 
 cd "$APP_DIR" || {
   echo "Error: Could not find FluorEasy directory at $APP_DIR"
